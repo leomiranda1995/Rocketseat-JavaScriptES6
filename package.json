@@ -1,0 +1,16 @@
+{
+  "name": "Rocketseat-JavaScriptES6",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/leomiranda1995/Rocketseat-JavaScriptES6.git",
+  "author": "leomiranda1995 <leomiranda1995@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1"
+  },
+  "scripts": {
+    "dev": "babel ./main.js -o ./bundle.js -w"
+  }
+}
