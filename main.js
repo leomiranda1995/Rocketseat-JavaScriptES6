@@ -91,3 +91,15 @@ const findArray = arr.find(function(item){
     return item === 4;
 });
 console.log(findArray);
+
+
+// ARROW FUNCTIONS
+
+const arrayAf = [1, 3, 4, 5, 6];
+
+const mapArrayAf = arrayAf.map(item => item * 2);
+console.log(mapArrayAf);
+
+
+const TesteAf = () => ({ nome: 'Diego' });
+console.log(TesteAf());

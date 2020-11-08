@@ -121,4 +121,18 @@ console.log(filterArray); //find -> procura uma informação dentro do array ou 
 var findArray = arr.find(function (item) {
   return item === 4;
 });
-console.log(findArray);
+console.log(findArray); // ARROW FUNCTIONS
+
+var arrayAf = [1, 3, 4, 5, 6];
+var mapArrayAf = arrayAf.map(function (item) {
+  return item * 2;
+});
+console.log(mapArrayAf);
+
+var TesteAf = function TesteAf() {
+  return {
+    nome: 'Diego'
+  };
+};
+
+console.log(TesteAf());
