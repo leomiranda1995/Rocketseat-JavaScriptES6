@@ -103,3 +103,16 @@ console.log(mapArrayAf);
 
 const TesteAf = () => ({ nome: 'Diego' });
 console.log(TesteAf());
+
+
+// VALORES PADRÃO
+
+function soma(a = 3, b = 6) {
+    return a + b;
+}
+console.log(soma(1));
+console.log(soma());
+
+const somaArrowFunction = (a = 3, b = 6) => a + b;
+console.log(somaArrowFunction(1));
+console.log(somaArrowFunction());
