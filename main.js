@@ -190,3 +190,16 @@ const nomeTL = 'Diego';
 const idadeTL = 23;
 // console.log('Meu nome é ' + nomeTL + ' e tenho ' + idadeTL + ' anos.');
 console.log(`Meu nome é ${nomeTL} e tenho ${idadeTL} anos.`);
+
+
+// OBJECT SHORT SYNTAX
+
+const nomeOSS = 'Diego';
+const idadeOSS = 23;
+
+const usuarioOSS = {
+    nomeOSS,
+    idadeOSS,
+    empresa: 'Rocketseat', 
+};
+console.log(usuarioOSS);
