@@ -142,3 +142,43 @@ function mostraNome({ nomeDs, idadeDs }) {
     console.log(nomeDs, idadeDs);
 }
 mostraNome(usuarioDs);
+
+
+// OPERADORES REST E SPREAD
+
+// Rest -> Pegar o resto das propriedades
+
+const usuarioRS = {
+    nomeRS: 'Diego',
+    idadeRS: 23,
+    empresaRS: 'Rocketseat'
+};
+const { nomeRS, ...resto } = usuarioRS;
+console.log(nomeRS);
+console.log(resto);
+
+const arrRS = [1, 2, 3, 4];
+const [ x, y, ...z ] = arrRS;
+console.log(x);
+console.log(y);
+console.log(z);
+
+function somaRS(...params) {
+    return params.reduce((total, next) => total + next);
+}
+console.log(somaRS(1, 3, 4));
+
+// SPREAD
+
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+const arr3 = [...arr1, ...arr2];
+console.log(arr3);
+
+const usuario1 = {
+    nome: 'Diego',
+    idade: 23,
+    empresa: 'Rocketseat',
+};
+const usuario2 = { ...usuario1, nome: 'Gabriel' };
+console.log(usuario2);
