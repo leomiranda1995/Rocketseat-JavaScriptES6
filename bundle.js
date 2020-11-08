@@ -99,4 +99,26 @@ function teste(x) {
   }
 }
 
-teste(10);
+teste(10); // OPERAÇÕES EM ARRAY
+
+var arr = [1, 3, 4, 5, 8, 9]; //map -> percorrer o vetor e retornar uma informação
+
+var mapArray = arr.map(function (item, index) {
+  return item + index;
+});
+console.log(mapArray); //reduce -> consumir o vetor e transformar em uma única variável, geralmente um número
+
+var reduceArray = arr.reduce(function (total, next) {
+  return total + next;
+});
+console.log(reduceArray); //filter -> filtra e retorna apenas os itens que atendem a condição, retornando true ou false
+
+var filterArray = arr.filter(function (item) {
+  return item % 2 === 0;
+});
+console.log(filterArray); //find -> procura uma informação dentro do array ou se a gente consegue encontrar uma informação dentro do array]
+
+var findArray = arr.find(function (item) {
+  return item === 4;
+});
+console.log(findArray);
