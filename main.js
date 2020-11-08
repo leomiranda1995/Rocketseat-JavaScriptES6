@@ -116,3 +116,29 @@ console.log(soma());
 const somaArrowFunction = (a = 3, b = 6) => a + b;
 console.log(somaArrowFunction(1));
 console.log(somaArrowFunction());
+
+
+// DESESTRUTURAÇÃO
+const usuarioDs = {
+    nomeDs: 'Diego',
+    idadeDs: 23,
+    enderecoDs: {
+        cidadeDs: 'Rio do Sul',
+        estadoDs: 'SC',
+    },
+};
+
+// const nome = usuario.nome;
+// const idade = usuario.idade;
+// const cidade = usuario.endereco.cidade;
+
+const{ nomeDs, idadeDs, enderecoDs: { cidadeDs } } = usuarioDs;
+console.log(nomeDs);
+console.log(idadeDs);
+console.log(cidadeDs);
+
+
+function mostraNome({ nomeDs, idadeDs }) {
+    console.log(nomeDs, idadeDs);
+}
+mostraNome(usuarioDs);

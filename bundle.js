@@ -153,4 +153,30 @@ var somaArrowFunction = function somaArrowFunction() {
 };
 
 console.log(somaArrowFunction(1));
-console.log(somaArrowFunction());
+console.log(somaArrowFunction()); // DESESTRUTURAÇÃO
+
+var usuarioDs = {
+  nomeDs: 'Diego',
+  idadeDs: 23,
+  enderecoDs: {
+    cidadeDs: 'Rio do Sul',
+    estadoDs: 'SC'
+  }
+}; // const nome = usuario.nome;
+// const idade = usuario.idade;
+// const cidade = usuario.endereco.cidade;
+
+var nomeDs = usuarioDs.nomeDs,
+    idadeDs = usuarioDs.idadeDs,
+    cidadeDs = usuarioDs.enderecoDs.cidadeDs;
+console.log(nomeDs);
+console.log(idadeDs);
+console.log(cidadeDs);
+
+function mostraNome(_ref) {
+  var nomeDs = _ref.nomeDs,
+      idadeDs = _ref.idadeDs;
+  console.log(nomeDs, idadeDs);
+}
+
+mostraNome(usuarioDs);
