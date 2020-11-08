@@ -6,10 +6,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
-
-function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
-
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
@@ -32,186 +28,190 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-// ES6
-// Classes
-var List = /*#__PURE__*/function () {
-  function List() {
-    _classCallCheck(this, List);
+// Exercício 1
+var Usuario = /*#__PURE__*/function () {
+  function Usuario(email, senha) {
+    _classCallCheck(this, Usuario);
 
-    this.data = [];
+    this.email = email, this.senha = senha, this.admin = false;
   }
 
-  _createClass(List, [{
-    key: "add",
-    value: function add(data) {
-      this.data.push(data);
-      console.log(this.data);
+  _createClass(Usuario, [{
+    key: "isAdmin",
+    value: function isAdmin() {
+      return this.admin;
     }
   }]);
 
-  return List;
+  return Usuario;
 }();
 
-var TodoList = /*#__PURE__*/function (_List) {
-  _inherits(TodoList, _List);
+var Admin = /*#__PURE__*/function (_Usuario) {
+  _inherits(Admin, _Usuario);
 
-  var _super = _createSuper(TodoList);
+  var _super = _createSuper(Admin);
 
-  function TodoList() {
+  function Admin() {
     var _this;
 
-    _classCallCheck(this, TodoList);
+    _classCallCheck(this, Admin);
 
     _this = _super.call(this);
-    _this.usuario = 'Leonardo';
+    _this.admin = true;
     return _this;
   }
 
-  _createClass(TodoList, [{
-    key: "mostraUsuario",
-    value: function mostraUsuario() {
-      console.log(this.usuario);
-    } // normalmente métodos static, sua classe não tem constructor, pois ele não ve o escopo dela somente para apresentar alguma informação
+  return Admin;
+}(Usuario);
 
-  }], [{
-    key: "soma",
-    value: function soma(a, b) {
-      return a + b;
-    }
-  }]);
+var User1 = new Usuario('user@teste.com', 'senha123');
+var Adm1 = new Admin('admin@teste.com', 'senha123');
+console.log(User1.isAdmin());
+console.log(Adm1.isAdmin()); ///////////////////////////////////////////////////////////
+// Exercício 2
 
-  return TodoList;
-}(List);
+var usuarios = [{
+  nome: 'Diego',
+  idade: 23,
+  empresa: 'Rocketseat'
+}, {
+  nome: 'Gabriel',
+  idade: 15,
+  empresa: 'Rocketseat'
+}, {
+  nome: 'Lucas',
+  idade: 30,
+  empresa: 'Facebook'
+}];
+console.log(usuarios.map(function (item) {
+  return item.idade;
+}));
+console.log(usuarios.filter(function (item) {
+  return item.empresa === 'Rocketseat' && item.idade > 18;
+}));
+console.log(usuarios.find(function (item) {
+  return item.empresa === 'Google';
+}));
+var usuarios2 = usuarios.map(function (item) {
+  return {
+    nome: item.nome,
+    idade: item.idade * 2,
+    empresa: item.empresa
+  };
+});
+console.log(usuarios2);
+console.log(usuarios2.filter(function (item) {
+  return item.idade <= 50;
+})); ///////////////////////////////////////////////////////////
+// Exercício 3
+//3.1
 
-var MinhaLista = new TodoList();
+var arr = [1, 2, 3, 4, 5];
+/*
+arr.map(function(item) {
+ return item + 10;
+});
+*/
 
-document.querySelector('#novoTodo').onclick = function () {
-  MinhaLista.add('Novo todo');
-};
-
-MinhaLista.mostraUsuario();
-console.log(TodoList.soma(6, 7)); // Const e Let
-
-var a = 1; // Não pode ter seu valor redefinido
-// a = 3; // não irá funcionar
-// Mas ela pode ser alterada por mutação dentro da constante
+console.log('Exercício 3.1', arr.map(function (item) {
+  return item + 10;
+})); //3.2
 
 var usuario = {
-  nome: 'Leonardo'
+  nome: 'Diego',
+  idade: 23
 };
-usuario.nome = 'Cleiton'; // Let é a variável de escopo, não-global a todo arquivo
-
-function teste(x) {
-  var y = 2;
-
-  if (x > 5) {
-    console.log(x, y);
-  }
+/*
+function mostraIdade(usuario) {
+    return usuario.idade;
 }
+*/
 
-teste(10); // OPERAÇÕES EM ARRAY
+var mostraIdade = function mostraIdade(usuario) {
+  return usuario.idade;
+};
 
-var arr = [1, 3, 4, 5, 8, 9]; //map -> percorrer o vetor e retornar uma informação
+console.log('Exercício 3.2', mostraIdade(usuario)); //3.3
 
-var mapArray = arr.map(function (item, index) {
-  return item + index;
-});
-console.log(mapArray); //reduce -> consumir o vetor e transformar em uma única variável, geralmente um número
+var nome = "Diego";
+var idade = 23;
+/*
+function mostraUsuario(nome = 'Diego', idade = 18) {
+    return { nome, idade};
+}
+*/
 
-var reduceArray = arr.reduce(function (total, next) {
-  return total + next;
-});
-console.log(reduceArray); //filter -> filtra e retorna apenas os itens que atendem a condição, retornando true ou false
-
-var filterArray = arr.filter(function (item) {
-  return item % 2 === 0;
-});
-console.log(filterArray); //find -> procura uma informação dentro do array ou se a gente consegue encontrar uma informação dentro do array]
-
-var findArray = arr.find(function (item) {
-  return item === 4;
-});
-console.log(findArray); // ARROW FUNCTIONS
-
-var arrayAf = [1, 3, 4, 5, 6];
-var mapArrayAf = arrayAf.map(function (item) {
-  return item * 2;
-});
-console.log(mapArrayAf);
-
-var TesteAf = function TesteAf() {
+var mostraUsuario = function mostraUsuario() {
+  var nome = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'Diego';
+  var idade = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 18;
   return {
-    nome: 'Diego'
+    nome: nome,
+    idade: idade
   };
 };
 
-console.log(TesteAf()); // VALORES PADRÃO
+console.log(mostraUsuario(nome, idade));
+console.log(mostraUsuario(nome)); //3.4
 
-function soma() {
-  var a = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 3;
-  var b = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 6;
-  return a + b;
+/*
+const promise = function(){
+    return new Promise(function(resolve, reject){
+        return resolve();
+    })
 }
+*/
 
-console.log(soma(1));
-console.log(soma());
+var promise = function promise() {
+  return new Promise(function (resolve, reject) {
+    return resolve();
+  });
+}; ///////////////////////////////////////////////////////////
+// Exercício 4
+//4.1
 
-var somaArrowFunction = function somaArrowFunction() {
-  var a = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 3;
-  var b = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 6;
-  return a + b;
-};
 
-console.log(somaArrowFunction(1));
-console.log(somaArrowFunction()); // DESESTRUTURAÇÃO
-
-var usuarioDs = {
-  nomeDs: 'Diego',
-  idadeDs: 23,
-  enderecoDs: {
-    cidadeDs: 'Rio do Sul',
-    estadoDs: 'SC'
+var empresa = {
+  name: 'Rocketseat',
+  address: {
+    city: 'Rio do Sul',
+    state: 'SC'
   }
-}; // const nome = usuario.nome;
-// const idade = usuario.idade;
-// const cidade = usuario.endereco.cidade;
+};
+var name = empresa.name,
+    _empresa$address = empresa.address,
+    city = _empresa$address.city,
+    state = _empresa$address.state;
+console.log(name);
+console.log(city);
+console.log(state); //4.2
 
-var nomeDs = usuarioDs.nomeDs,
-    idadeDs = usuarioDs.idadeDs,
-    cidadeDs = usuarioDs.enderecoDs.cidadeDs;
-console.log(nomeDs);
-console.log(idadeDs);
-console.log(cidadeDs);
-
-function mostraNome(_ref) {
-  var nomeDs = _ref.nomeDs,
-      idadeDs = _ref.idadeDs;
-  console.log(nomeDs, idadeDs);
+/*
+function mostraInfo(usuario){
+    return `${usuario.nome} tem ${usuario.idade} anos.`;
 }
+mostraInfo( {nome: 'Diego', idade: 23} );
+*/
 
-mostraNome(usuarioDs); // OPERADORES REST E SPREAD
-// Rest -> Pegar o resto das propriedades
-
-var usuarioRS = {
-  nomeRS: 'Diego',
-  idadeRS: 23,
-  empresaRS: 'Rocketseat'
+var mostraInfo = function mostraInfo(_ref) {
+  var nome = _ref.nome,
+      idade = _ref.idade;
+  return "".concat(nome, " tem ").concat(idade, " anos");
 };
 
-var nomeRS = usuarioRS.nomeRS,
-    resto = _objectWithoutProperties(usuarioRS, ["nomeRS"]);
+console.log(mostraInfo({
+  nome: 'Diego',
+  idade: 23
+})); ///////////////////////////////////////////////////////////
+// Exercício 5
+//5.1
 
-console.log(nomeRS);
-console.log(resto);
-var arrRS = [1, 2, 3, 4];
-var x = arrRS[0],
-    y = arrRS[1],
-    z = arrRS.slice(2);
+var newArr = [1, 2, 3, 4, 5, 6];
+var x = newArr[0],
+    y = newArr.slice(1);
 console.log(x);
 console.log(y);
-console.log(z);
 
-function somaRS() {
+var soma = function soma() {
   for (var _len = arguments.length, params = new Array(_len), _key = 0; _key < _len; _key++) {
     params[_key] = arguments[_key];
   }
@@ -219,36 +219,55 @@ function somaRS() {
   return params.reduce(function (total, next) {
     return total + next;
   });
-}
-
-console.log(somaRS(1, 3, 4)); // SPREAD
-
-var arr1 = [1, 2, 3];
-var arr2 = [4, 5, 6];
-var arr3 = [].concat(arr1, arr2);
-console.log(arr3);
-var usuario1 = {
-  nome: 'Diego',
-  idade: 23,
-  empresa: 'Rocketseat'
 };
 
-var usuario2 = _objectSpread(_objectSpread({}, usuario1), {}, {
+console.log(soma(1, 2, 3, 4, 5, 6));
+console.log(soma(1, 2)); //5.2
+
+var userSpread = {
+  nome: 'Diego',
+  idade: 23,
+  endereco: {
+    cidade: 'Rio do Sul',
+    uf: 'SC',
+    pais: 'Brasil'
+  }
+};
+
+var userSpread2 = _objectSpread(_objectSpread({}, userSpread), {}, {
   nome: 'Gabriel'
 });
 
-console.log(usuario2); // TEMPLATE LITERALS
+console.log(userSpread2);
 
-var nomeTL = 'Diego';
-var idadeTL = 23; // console.log('Meu nome é ' + nomeTL + ' e tenho ' + idadeTL + ' anos.');
+var userSpread3 = _objectSpread(_objectSpread({}, userSpread), {}, {
+  endereco: {
+    cidade: 'Lontras'
+  }
+});
 
-console.log("Meu nome \xE9 ".concat(nomeTL, " e tenho ").concat(idadeTL, " anos.")); // OBJECT SHORT SYNTAX
+console.log(userSpread3); ///////////////////////////////////////////////////////////
+// Exercício 6
+
+var userTL = 'Diego';
+var idadeTL = 23; // console.log('O usuário ' + usuario + ' possui ' + idade + ' anos.');
+
+console.log("O usu\xE1rio ".concat(userTL, " possui ").concat(idadeTL, " anos.")); ///////////////////////////////////////////////////////////
+// Exercício 7
 
 var nomeOSS = 'Diego';
 var idadeOSS = 23;
+/*
+const usuarioOSS = {
+    nomeOSS: nomeOSS,
+    idadeOSS: idadeOSS,
+    cidadeOSS: 'Rio do Sul',
+};
+*/
+
 var usuarioOSS = {
   nomeOSS: nomeOSS,
   idadeOSS: idadeOSS,
-  empresa: 'Rocketseat'
+  cidadeOSS: 'Rio do Sul'
 };
 console.log(usuarioOSS);
