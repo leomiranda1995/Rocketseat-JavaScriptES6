@@ -11,12 +11,12 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.12.1",
     "@babel/preset-env": "^7.12.1",
     "babel-loader": "^8.1.0",
-    "webpack": "^5.4.0",
-    "webpack-cli": "^4.2.0"
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   },
   "scripts": {
-    "dev": "webpack --mode=development -w",
-    "conceitos": "babel ./conceitos.js -o ./bundle.js -w",
-    "desafioConceitos": "babel ./desafioConceitos.js -o ./bundle.js -w"
+    "dev": "webpack-dev-server --mode=development",
+    "build": "webpack --mode=production"
   }
 }
