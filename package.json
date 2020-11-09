@@ -5,14 +5,17 @@
   "repository": "https://github.com/leomiranda1995/Rocketseat-JavaScriptES6.git",
   "author": "leomiranda1995 <leomiranda1995@gmail.com>",
   "license": "MIT",
-  "dependencies": {
+  "devDependencies": {
     "@babel/cli": "^7.12.1",
     "@babel/core": "^7.12.3",
     "@babel/plugin-proposal-object-rest-spread": "^7.12.1",
-    "@babel/preset-env": "^7.12.1"
+    "@babel/preset-env": "^7.12.1",
+    "babel-loader": "^8.1.0",
+    "webpack": "^5.4.0",
+    "webpack-cli": "^4.2.0"
   },
   "scripts": {
-    "dev": "babel ./main.js -o ./bundle.js -w",
+    "dev": "webpack --mode=development -w",
     "conceitos": "babel ./conceitos.js -o ./bundle.js -w",
     "desafioConceitos": "babel ./desafioConceitos.js -o ./bundle.js -w"
   }
