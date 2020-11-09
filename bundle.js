@@ -15,12 +15,13 @@
   !*** ./functions.js ***!
   \**********************/
 /*! namespace exports */
-/*! export soma [provided] [no usage info] [missing usage info prevents renaming] */
+/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
+/*! export sub [provided] [no usage info] [missing usage info prevents renaming] */
 /*! other exports [not provided] [no usage info] */
 /*! runtime requirements: __webpack_require__.r, __webpack_exports__, __webpack_require__.d, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"soma\": () => /* binding */ soma\n/* harmony export */ });\nfunction soma(a, b) {\n  return a + b;\n}\n\n//# sourceURL=webpack://Rocketseat-JavaScriptES6/./functions.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => /* binding */ soma,\n/* harmony export */   \"sub\": () => /* binding */ sub\n/* harmony export */ });\nfunction soma(a, b) {\n  return a + b;\n}\nfunction sub(a, b) {\n  return a - b;\n}\n\n//# sourceURL=webpack://Rocketseat-JavaScriptES6/./functions.js?");
 
 /***/ }),
 
@@ -33,7 +34,21 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /*! runtime requirements: __webpack_require__, __webpack_require__.r, __webpack_exports__, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _functions_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./functions.js */ \"./functions.js\");\n;\nconsole.log((0,_functions_js__WEBPACK_IMPORTED_MODULE_0__.soma)(1, 4));\n\n//# sourceURL=webpack://Rocketseat-JavaScriptES6/./main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _functions_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./functions.js */ \"./functions.js\");\n/* harmony import */ var _soma_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./soma.js */ \"./soma.js\");\n;\n\nconsole.log((0,_functions_js__WEBPACK_IMPORTED_MODULE_0__.default)(1, 4));\nconsole.log((0,_functions_js__WEBPACK_IMPORTED_MODULE_0__.sub)(8, 2));\nconsole.log((0,_soma_js__WEBPACK_IMPORTED_MODULE_1__.default)(7, 8));\n\n//# sourceURL=webpack://Rocketseat-JavaScriptES6/./main.js?");
+
+/***/ }),
+
+/***/ "./soma.js":
+/*!*****************!*\
+  !*** ./soma.js ***!
+  \*****************/
+/*! namespace exports */
+/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_require__.r, __webpack_exports__, __webpack_require__.d, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => /* binding */ soma\n/* harmony export */ });\nfunction soma(a, b) {\n  return a + b;\n}\n\n//# sourceURL=webpack://Rocketseat-JavaScriptES6/./soma.js?");
 
 /***/ })
 
